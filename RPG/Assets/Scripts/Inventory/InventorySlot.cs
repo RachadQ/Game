@@ -6,24 +6,22 @@ using UnityEngine.UI;
 public class InventorySlot :MonoBehaviour
 {
     public ItemObject Item { get; set; }
-    public Sprite icon;
-
+    private Image icon;
+    Sprite image;
 
     void Start()
     {
-       // icon = Resources.Load<Sprite>("pic.jpg");
+        icon = this.GetComponent<Image>();
 
     }
 
     public void SetIcon(ItemObject item)
     {
-        icon = Resources.Load<Sprite>("pic");
-       
 
-        Debug.Log("reaching");
-        Image img = GetComponent<Image>();
-        this.GetComponent<Image>().sprite = icon;
-        img.sprite = icon;
+        Item = item;
+        icon.sprite = item.Icon;
+       
+     
         
 
     }

@@ -24,9 +24,9 @@ public class DisplayInventory : MonoBehaviour
         //loop through players inventory and add item to slot
         foreach (var item in player.inventory.inventory.Values)
         {
-            //set icon
-            slots[index].Item = item;
-            slots[index].icon = item.Icon;
+            //set image and icon
+           // slots[index].Item = item;
+           // slots[index].icon = item.Icon;
             slots[index].SetIcon(item);
             index++;
         }

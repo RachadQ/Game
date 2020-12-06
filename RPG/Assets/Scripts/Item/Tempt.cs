@@ -9,7 +9,7 @@ public class Tempt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        item = new ConsumableObject(11, "pot", "healingPeople", Resources.Load<Sprite>("pic.jpg"));
+        item = new ConsumableObject(11, "pot", "healingPeople", Resources.Load<Sprite>("sword"));
 
     }
 
