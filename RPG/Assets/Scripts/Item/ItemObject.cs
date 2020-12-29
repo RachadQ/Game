@@ -29,5 +29,10 @@ public abstract class ItemObject
         Amount += val;
     }
 
+    public void RemoveAmount()
+    {
+        Amount = 0;
+    }
+
 
 }

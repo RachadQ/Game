@@ -30,13 +30,10 @@ public class Player : MonoBehaviour
         
         var _item = other.GetComponent<Item>();
         //if the object has a item script
-        if (_item )
+        if (_item != null)
         {
             //add item
-            inventory.AddItem(_item.item, 1);
-          
-            inventory.PrintLength();
-            inv.UpdateDisplay(this);
+            inventory.AddItem(_item.item, 1);          
             Destroy(other.gameObject);
         }
   

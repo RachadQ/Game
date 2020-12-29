@@ -20,4 +20,13 @@ public class ConsumableObject : ItemObject
         Icon = _icon;
         IsStackable = isStackable;
     }
+
+    public ConsumableObject(ConsumableObject obj)
+    {
+        Id = obj.Id;
+        Name = obj.Name;
+        Description = obj.Description;
+        Icon = obj.Icon;
+        IsStackable = obj.IsStackable;
+    }
 }
