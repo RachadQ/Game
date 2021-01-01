@@ -6,8 +6,9 @@ using UnityEngine.UI;
 //keep track of slot
 public class InventorySlot :MonoBehaviour
 {
-    public ItemObject Item { get; set; }
+    public ItemObject Item;
     private Image icon;
+    public bool isUse = false;
     public uint amount { get; set; }
 
     void Start()
@@ -16,20 +17,23 @@ public class InventorySlot :MonoBehaviour
 
     }
 
+   
+
     //set item and icon
     public void SetIcon(ItemObject item)
     {
 
-        UpdateSlot(item.StaticId, item, item.Amount);
+        //Update slot and sprite
+        UpdateSlot( item, item.Amount);
         icon.sprite = item.Icon;
        
     }
 
-    public void UpdateSlot(uint _id,ItemObject _item, uint _amount)
+    public void UpdateSlot(ItemObject _item, uint _amount)
     {
         Item = _item;
         amount = _amount;
-
+        isUse = true;
     }
 
     //clear ui and item
@@ -38,6 +42,7 @@ public class InventorySlot :MonoBehaviour
 
         Item = null;
         icon.sprite = null;
+        isUse = false;
     }
 
    

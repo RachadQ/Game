@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Tempt : MonoBehaviour
+public class Tempt : ItemObject
 {
-    public ItemObject item;
+   
 
     // Start is called before the first frame update
     void Start()
     {
-        item = new ConsumableObject(11, "pot", "healingPeople", Resources.Load<Sprite>("sword"));
+        this.Icon =  Resources.Load<Sprite>("sword");
 
     }
 

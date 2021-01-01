@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public abstract class ItemObject
+public abstract class ItemObject:MonoBehaviour
 {
     public uint StaticId { get; set; }
     public uint Id { get; set; }
@@ -13,6 +13,7 @@ public abstract class ItemObject
     public bool IsStackable { get; set; }
     public uint Amount { get; set; }
 
+   
     public void Setprefab(GameObject _obj)
     {
         prefab = _obj;

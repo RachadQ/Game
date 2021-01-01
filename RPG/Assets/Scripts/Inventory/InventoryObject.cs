@@ -2,27 +2,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Handle inventory backend
+//Inventory controller
 public class InventoryObject : MonoBehaviour
 {
     public Dictionary<uint, ItemObject> inventory = new Dictionary<uint, ItemObject>();
     public DisplayInventory inventoryUi;
-   
+
+    void Start()
+    {
+        inventoryUi = GameObject.FindGameObjectWithTag("Finish").GetComponent<DisplayInventory>();
+
+
+
+    }
     //add item to inventory
     public void AddItem(ItemObject _item, uint _amount)
     {
-
-
+        //make a copy of item
+        ItemObject copy = _item;
+        
         //check if we have key and item is stackable
-        if (inventory.ContainsKey(_item.StaticId) && _item.IsStackable == true) 
+        if (inventory.ContainsKey(copy.StaticId) ) 
         {
-         
-            inventory[_item.StaticId].AddAmount(_amount);
+            if (copy.IsStackable == true)
+            {
+               
+                inventory[copy.StaticId].AddAmount(_amount);
+                inventoryUi.UpdateAmount(_amount,copy.StaticId);
+                return;
+            }
+            else
+                inventory.Add(copy.StaticId, copy);
+            Debug.Log(inventory[copy.StaticId].Amount);
+
 
 
         }
         else
-            inventory.Add(_item.StaticId,_item);
+            inventory.Add(copy.StaticId, copy);
+
 
         inventoryUi.UpdateDisplay(this);
     }

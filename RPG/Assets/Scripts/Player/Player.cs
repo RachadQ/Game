@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public InventoryObject inventory = new InventoryObject();
-    public DisplayInventory inv;
-
+    public InventoryObject inventory;
+  
     private void Awake()
     {
-       
+        inventory = gameObject.AddComponent<InventoryObject>() ;
     }
     // Start is called before the first frame update
     void Start()
     {
-        inventory = GameObject.FindGameObjectWithTag("Finish").GetComponent<InventoryObject>();
+        
 
-        inv = GameObject.FindGameObjectWithTag("Finish").GetComponent<DisplayInventory>();
+       
        
     }
 
@@ -28,12 +27,12 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         
-        var _item = other.GetComponent<Item>();
+        var _item = other.GetComponent<ItemObject>();
         //if the object has a item script
         if (_item != null)
         {
             //add item
-            inventory.AddItem(_item.item, 1);          
+            inventory.AddItem(_item, _item.Amount);          
             Destroy(other.gameObject);
         }
   

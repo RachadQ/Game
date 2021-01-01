@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class QuestObject : ItemObject
 {
+   
 
     // Start is called before the first frame update
     void Start()
